@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import Splash from './pages/Splash';
 import Navbar from './components/Navbar';
-import './styles/App.css';
+import './styles/App.scss';
 
 function App() {
   return (

@@ -1,3 +1,7 @@
+@charset "utf-8";
+@import "./variables.scss";
+@import "../../node_modules/bulma"; 
+
 body {
   background-color: cornflowerblue;
   min-height: 100vh;

@@ -6,8 +6,14 @@ const Splash = () => {
 
   return (
     <>
-      <p>This is the splash page baby</p>
       <p>{loggedIn}</p>
+      <section className="hero">
+        <div className="hero-body">
+          <p className="title">
+            You're so vain.
+          </p>
+        </div>
+      </section>
     </>
   )
 
