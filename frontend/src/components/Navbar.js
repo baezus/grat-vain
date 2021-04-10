@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar">
       <nav>
         <ul className="nav-list">
-          <li className="nav-item">
+          <li className="nav-item" id="home">
             VAIN
           </li>
           <li className="nav-item">

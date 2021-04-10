@@ -8,9 +8,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Navbar/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
       </header>
       <body>
         <Splash/>
