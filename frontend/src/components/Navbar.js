@@ -4,27 +4,27 @@ const Navbar = () => {
 
   return(
     <>
-    <div className="navbar">
-      <nav>
-        <ul className="nav-list">
-          <li className="nav-item" id="home">
+      <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
+        <div className="navbar-brand">
+          <a className="navbar-item" id="home">
             VAIN
-          </li>
-          <li className="nav-item">
+          </a>
+        </div>
+        <div className="navbar-menu">
+          <a className="navbar-item">
             For Poets 
-          </li>
-          <li className="nav-item">
+          </a>
+          <a className="navbar-item">
             For Editors 
-          </li>
-          <li className="nav-item">
+          </a>
+          <a className="navbar-item">
             Log In 
-          </li>
-          <li className="nav-item">
+          </a>
+          <a className="navbar-item">
             Register
-          </li>
-        </ul>
+          </a>
+        </div>
       </nav>
-    </div>
     </>
   )
 }
