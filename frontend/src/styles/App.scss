@@ -3,7 +3,52 @@
 @import "../../node_modules/bulma"; 
 
 body {
-  background-color: cornflowerblue;
+  background-color: $four;
   min-height: 100vh;
   min-width: 100vw;
+  color: $one;
+}
+
+div.navbar{
+  background-color: transparent;
+}
+
+div.navbar-menu {
+  padding-right: 3em;
+}
+
+div.navbar-brand {
+  padding-left: 1em;
+}
+
+section.hero.is-large#heroOne {
+  background-color: $four;
+}
+
+section.hero.is-medium#heroTwo {
+  background-color: $three;
+}
+
+section.hero.is-medium#heroThree {
+  background-color: $two;
+}
+
+section.hero.is-medium#heroFour {
+  background-color: $one;
+}
+
+p.title.four {
+  color: $four;
+}
+
+p.subtitle.four{
+  color: $four;
+}
+
+p.title.two {
+  color: $one;
+}
+
+p.subtitle.two{
+  color: $one;
 }

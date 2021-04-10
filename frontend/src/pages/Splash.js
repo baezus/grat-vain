@@ -7,10 +7,43 @@ const Splash = () => {
   return (
     <>
       <p>{loggedIn}</p>
-      <section className="hero">
+      <section className="hero is-large" id="heroOne">
         <div className="hero-body">
-          <p className="title">
-            You're so vain.
+          <p className="title two">
+            Welcome to Cohort
+          </p>
+          <p className="subtitle two">
+            where poems and poets find each other.
+          </p>
+        </div>
+      </section>
+      <section class="hero is-medium" id="heroTwo">
+        <div class="hero-body">
+          <p class="title two">
+            Have your poems workshopped
+          </p>
+          <p class="subtitle two">
+            other people 
+          </p>
+        </div>
+      </section>
+      <section class="hero is-medium" id="heroThree">
+        <div class="hero-body">
+          <p class="title two">
+            Read other poems
+          </p> 
+          <p class="subtitle two">
+            Earn gratitude 
+          </p>
+        </div>
+      </section>
+      <section class="hero is-medium" id="heroFour">
+        <div class="hero-body">
+          <p class="title four">
+            Connect with poets 
+          </p>
+          <p class="subtitle four">
+            others like you, networking
           </p>
         </div>
       </section>
