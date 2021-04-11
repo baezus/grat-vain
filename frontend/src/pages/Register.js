@@ -11,15 +11,10 @@ const Register = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchData = async() => {
-  //     const result = await axios(
-  //       'https://localhost:2737/api/v1/users/register'
-  //     );
-  //     setData(result.data);
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    axios.post(
+    'http://localhost:2737/api/v1/users/register', data);
+ }, [submitted]);
 
   const handleNameInputChange = (event) => {
     event.persist();
@@ -85,7 +80,7 @@ const Register = () => {
 
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link" type="submit" onSubmit={handleSubmit}>Submit</button>
+          <button className="button is-link" type="submit" >Submit</button>
         </div>
       </div>
       </form>
