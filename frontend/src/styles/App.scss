@@ -3,7 +3,7 @@
 @import "../../node_modules/bulma"; 
 
 body {
-  background-color: $four;
+  background-color: $one;
   min-height: 100vh;
   min-width: 100vw;
   color: $one;
@@ -25,36 +25,41 @@ div.navbar-brand {
   font-size: 2em;
 }
 
+a.navbar-item.is-active {
+  color: $eight;
+
+}
+
 section.hero.is-large#heroOne {
-  background-color: $four;
-}
-
-section.hero.is-medium#heroTwo {
-  background-color: $three;
-}
-
-section.hero.is-medium#heroThree {
-  background-color: $two;
-}
-
-section.hero.is-medium#heroFour {
   background-color: $one;
 }
 
+section.hero.is-medium#heroTwo {
+  background-color: $two;
+}
+
+section.hero.is-medium#heroThree {
+  background-color: $three;
+}
+
+section.hero.is-medium#heroFour {
+  background-color: $four;
+}
+
 p.title.four {
-  color: $five;
+  color: $one;
 }
 
 p.subtitle.four{
-  color: $five;
+  color: $one;
 }
 
 p.title.two {
-  color: $one;
+  color: $eight;
 }
 
 p.subtitle.two{
-  color: $one;
+  color: $eight;
 }
 
 div.registerForm {
