@@ -15,10 +15,14 @@ div.navbar{
 
 div.navbar-menu {
   padding-right: 3em;
+  font-weight: 700;
+  font-size: 1.3em;
 }
 
 div.navbar-brand {
   padding-left: 1em;
+  font-weight: 700;
+  font-size: 2em;
 }
 
 section.hero.is-large#heroOne {
@@ -38,11 +42,11 @@ section.hero.is-medium#heroFour {
 }
 
 p.title.four {
-  color: $four;
+  color: $five;
 }
 
 p.subtitle.four{
-  color: $four;
+  color: $five;
 }
 
 p.title.two {

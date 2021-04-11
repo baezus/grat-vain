@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import Splash from './pages/Splash';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import './styles/App.scss';
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
       <body>
         <Splash/>
       </body>
+      <div className="footer-div">
+        <Footer/>
+      </div>
     </div>
   );
 }

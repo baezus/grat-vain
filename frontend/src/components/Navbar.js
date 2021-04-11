@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="navbar is-transparent is-fixed" role="navigation" aria-label="main-navigation">
         <div className="navbar-brand">
           <a className="navbar-item" id="home">
-            VAIN
+            Vanity
           </a>
         </div>
         <div className="navbar-menu is-active">

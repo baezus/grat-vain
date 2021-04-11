@@ -10,10 +10,10 @@ const Splash = () => {
       <section className="hero is-large" id="heroOne">
         <div className="hero-body">
           <p className="title two">
-            Welcome to Cohort
+            Vanity
           </p>
           <p className="subtitle two">
-            where poems and poets find each other.
+            for poets and poems.
           </p>
         </div>
       </section>

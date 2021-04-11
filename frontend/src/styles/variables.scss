@@ -1,9 +1,25 @@
 //personal variables
-$one: #00303b;
-$two: #ffce96;
-$three: #ff7777;
-$four: #f1f2da;
+// $one: #00303b;
+// $two: #ffce96;
+// $three: #ff7777;
+// $four: #f1f2da;
 
+$one: #900c3f;
+$two: #e84a5f;
+$three: #ff837c;
+$four: #fc9d9d;
+$five: #feceab;
+$six: #ccafaf;
+$seven: #99b898;
+$eight: #ffffff;
 
 //bulma variables
+
+//navbar
 $navbar-background-color: transparent;
+$navbar-item-color: $eight;
+$navbar-item-hover-color: $one;
+$navbar-height: 5rem;
+
+//footer
+$footer-background-color: transparent;
