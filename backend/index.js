@@ -6,15 +6,15 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+app.use(cors());
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
-
+app.options('*', cors());
+app.use(express.json());
 //middleware
 
-app.use(cors());
-app.options('*', cors());
 app.use(morgan('tiny'));
-app.use(authJwt());
+// app.use(authJwt());
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
 //router imports

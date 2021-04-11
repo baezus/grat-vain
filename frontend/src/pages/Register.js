@@ -12,9 +12,15 @@ const Register = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    axios.post(
-    'http://localhost:2737/api/v1/users/register', data);
- }, [submitted]);
+    const result = axios.post(
+    'http://127.0.0.1:2737/api/v1/users/register', data)
+    .then(() => {
+      console.log('result: ', result);
+    })
+    .catch((err) => {
+      console.log('error :', err);
+    })
+  }, [data, submitted])
 
   const handleNameInputChange = (event) => {
     event.persist();
@@ -51,7 +57,7 @@ const Register = () => {
       <div className="field">
         <label className="label">Name</label>
         <div className="control">
-          <input className="input" value={data.name} name="name" type="text" placeholder="First Name" onChange={handleNameInputChange} disabled={submitted}/>
+          <input className="input" value={data.name} name="name" type="text" placeholder="First Name" onChange={handleNameInputChange}/>
         </div>
       </div>
 

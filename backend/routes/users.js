@@ -12,25 +12,25 @@ router.get(`/`, async (req, res) => {
   res.status(201).send(userList);
 });
 
-router.post(`/`, async(req, res) => {
-  let user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    passwordHash: bcrypt.hashSync(req.body.password, 7),
-    rank: req.body.rank,
-    display: req.body.display,
-    honor: req.body.honor,
-    poems: req.body.poems,
-    bookmarks: req.body.bookmarks
-  });
+// router.post(`/`, async(req, res) => {
+//   let user = new User({
+//     name: req.body.name,
+//     email: req.body.email,
+//     passwordHash: bcrypt.hashSync(req.body.password, 7),
+//     rank: req.body.rank,
+//     display: req.body.display,
+//     honor: req.body.honor,
+//     poems: req.body.poems,
+//     bookmarks: req.body.bookmarks
+//   });
 
-  user = await user.save();
+//   user = await user.save();
 
-  if (!user) {
-    return res.status(404).send('User not created.');
-  }
-  res.status(201).send(user);
-});
+//   if (!user) {
+//     return res.status(404).send('User not created.');
+//   }
+//   res.status(201).send(user);
+// });
 
 router.post('/login', async(req, res) => {
   const user = await User.findOne({email: req.body.email});
