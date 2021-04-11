@@ -60,11 +60,7 @@ router.post('/register', async(req, res) => {
     name: req.body.name,
     email: req.body.email,
     passwordHash: bcrypt.hashSync(req.body.password, 7),
-    rank: req.body.rank,
     display: req.body.display,
-    honor: req.body.honor,
-    poems: req.body.poems,
-    bookmarks: req.body.bookmarks
   });
   user = await user.save();
 

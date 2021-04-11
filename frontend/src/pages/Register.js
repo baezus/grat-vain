@@ -12,9 +12,9 @@ const Register = () => {
       </div>
 
       <div className="field">
-        <label className="label">Username</label>
+        <label className="label">Display Name</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-success" type="text" placeholder="Text input" value="bulma"/>
+          <input className="input is-success" type="text" placeholder=""/>
           <span className="icon is-small is-left">
             <i className="fas fa-user"></i>
           </span>
@@ -22,13 +22,12 @@ const Register = () => {
             <i className="fas fa-check"></i>
           </span>
         </div>
-        <p className="help is-success">This username is available</p>
       </div>
 
       <div className="field">
         <label className="label">Email</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-danger" type="email" placeholder="Email input" value="hello@"/>
+          <input className="input is-danger" type="email" placeholder="Email input" value=""/>
           <span className="icon is-small is-left">
             <i className="fas fa-envelope"></i>
           </span>
@@ -40,43 +39,9 @@ const Register = () => {
       </div>
 
       <div className="field">
-        <label className="label">Subject</label>
+        <label className="label">Password</label>
         <div className="control">
-          <div className="select">
-            <select>
-              <option>Select dropdown</option>
-              <option>With options</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Message</label>
-        <div className="control">
-          <textarea className="textarea" placeholder="Textarea"></textarea>
-        </div>
-      </div>
-
-      <div className="field">
-        <div className="control">
-          <label className="checkbox">
-            <input type="checkbox"/>
-            I agree to the <a href="#">terms and conditions</a>
-          </label>
-        </div>
-      </div>
-
-      <div className="field">
-        <div className="control">
-          <label className="radio">
-            <input type="radio" name="question"/>
-            Yes
-          </label>
-          <label className="radio">
-            <input type="radio" name="question"/>
-            No
-          </label>
+          <input className="input is-medium" type="password" placeholder="Password"></input>
         </div>
       </div>
 

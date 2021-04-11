@@ -27,10 +27,12 @@ const userSchema = new mongoose.Schema({
     default: 0
   },
   poems: [{
-    type: String, 
+    type: String,
+    default: [''] 
   }],
   bookmarks: [{
     type: String,
+    default: ['']
   }]
 });
 
