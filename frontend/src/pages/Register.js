@@ -7,20 +7,10 @@ const Register = () => {
     name: '',
     display: '',
     email: '',
+    password: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const result = axios.post(
-    'http://127.0.0.1:2737/api/v1/users/register', data)
-    .then(() => {
-      console.log('result: ', result);
-    })
-    .catch((err) => {
-      console.log('error :', err);
-    })
-  }, [data, submitted])
 
   const handleNameInputChange = (event) => {
     event.persist();
@@ -46,8 +36,24 @@ const Register = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handlePasswordInputChange = (event) => {
+    event.persist();
+    setData((data) => ({
+      ...data,
+      password: event.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const result = await axios.post(
+      'http://127.0.0.1:2737/api/v1/users/register', data)
+      .then(() => {
+        console.log('result: ', result);
+      })
+      .catch((err) => {
+        console.log('error :', err);
+    })
     setSubmitted(true);
   };
 
@@ -72,15 +78,13 @@ const Register = () => {
         <label className="label">Email</label>
         <div className="control has-icons-left has-icons-right">
           <input className="input is-danger" type="email" placeholder="Email" name="email" value={data.email} onChange={handleEmailInputChange}/>
-
         </div>
-        <p className="help is-danger">This email is invalid</p>
       </div>
 
       <div className="field">
         <label className="label">Password</label>
         <div className="control">
-          <input className="input is-medium" type="password" placeholder="Password"></input>
+          <input className="input is-medium" type="password" placeholder="Password" name="password" value={data.password} onChange={handlePasswordInputChange}/>
         </div>
       </div>
 
