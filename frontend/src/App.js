@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './styles/App.scss';
 
@@ -28,6 +29,10 @@ function App() {
 
             <Route exact path="/login">
               <Login/>
+            </Route>
+
+            <Route path="/profile/:name">
+              <Profile />
             </Route>
 
           </Switch>

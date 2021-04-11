@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ history }) => {
 
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setOpen] = useState(false);
+  const isAuth = !!localStorage.getItem("token");
+
+  const loginUser = () => {
+    localStorage.setItem("token", "some-login-token");
+    history.push("/profile/visit");
+  };
+
+  const logoutUser = () => {
+    localStorage.removeItem("token");
+    history.push("/");
+  };
 
   return(
     <>
@@ -28,19 +39,34 @@ const Navbar = () => {
           </div>
           <div 
             className={`navbar-menu ${isOpen && "is-active"}`}>
-            <div className="navbar-start">
+            <div className="navbar-end">
               <NavLink className="navbar-item" activeClassName="is-active" to="/poets" exact>
                 For Poets 
               </NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" to="/editors" exact>
                 For Editors 
               </NavLink>
-              <NavLink className="navbar-item" activeClassName="is-active" to="/login" exact>
-                Log In 
-              </NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" to="/register" exact>
                 Register
               </NavLink>
+            <div className="navbar-end">
+              {!isAuth ? (
+              <NavLink className="navbar-item" activeClassName="is-active" to="/login" onClick={loginUser} exact>
+                {/* <button className="button is-white" onClick={loginUser}>
+                  Log In
+                </button> */}
+                Log In 
+              </NavLink>
+             
+
+              
+              ) : (
+
+              <button className="button is-black" onClick={logoutUser}>
+                Log out
+              </button>
+              )}
+            </div>
             </div>
           </div>
         </div>
@@ -49,4 +75,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar;
+export default withRouter(Navbar);
