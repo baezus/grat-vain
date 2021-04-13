@@ -19,6 +19,8 @@ app.use(morgan('tiny'));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
 
+
+
 //router imports
 
 const usersRouter = require('./routes/users');

@@ -29,11 +29,10 @@ const PdfParser = () => {
     setDownloadButton(true);
   }
 
-  const changeHandler = async(e) => {
-    e.preventDefault();
+  const changeHandler = (e) => {
     setSelectedFile(e.target.files[0]);
+    console.log('selected file: ', selectedFile);
     setIsFilePicked(true);
-    setWhichButton('post');
     console.log('attempting to upload a poem...');
   }
 
@@ -43,17 +42,21 @@ const PdfParser = () => {
 
   const handleSubmission=async ()=>{
     const formData = new FormData();
+    console.log('selected file: ', selectedFile)
     formData.append('File', selectedFile);
-
+    console.log('form data:', formData);
+    
     const result = await axios.post(
-      'http://127.0.0.1:2737/api/v1/pdf/upload', formData
-    ).then((response) => response.json())
+      'http://127.0.0.1:2737/api/v1/profiles/pdf/upload', selectedFile, { responseType: 'arraybuffer', headers: { Accept: 'application/pdf'}}
+    )
     .then((res) => {
       console.log('Success: ', res);
     })
     .catch((error) => {
       console.error('Error: ', error);
     });
+
+    console.log('result: ', result);
   };
 
   const changeUploadButton = () => {
@@ -74,7 +77,13 @@ const PdfParser = () => {
         </ul>
 
       ) : (
-      <input type="file" name="file" onChange={changeHandler}/>
+        <form method="POST" action="/pdf/upload" enctype="multipart/form-data">
+          <div>
+          <input type="file" name="file" onChange={changeHandler}></input>
+          </div>
+          <button type="submit" name="file" onClick={handleSubmission}>Submit</button>  
+          </form>
+   
       )}
       { isFilePicked ? (
         <div>
@@ -84,17 +93,14 @@ const PdfParser = () => {
           <p>
             lastModifiedDate:{' '}
             {selectedFile.lastModifiedDate.toLocaleDateString()}
-          </p>
+          </p> 
         
-              
-        <button onClick={handleSubmission}>Submit</button>  
+        
         </div>
         
       ) : (
            <p>Click a button to go~</p>
       )}
-
-
     </div>
   )
 }
