@@ -5,10 +5,15 @@ const PdfParser = () => {
 
   const [pdfData, setPdfData] = useState('');
   const [buttonPressed, setButtonPressed] = useState(false);
+  const [lines, setLines] = useState(['']);
+  const finalities = [];
 
   useEffect(() => {
     console.log('pdf data: ', pdfData);
-
+    let arrayed = lineBreaker();
+    console.log('arrayed: ', arrayed);
+    setLines(arrayed);
+    
   }, [buttonPressed]);
 
   const handlePoemButton = async (e) => {
@@ -25,12 +30,18 @@ const PdfParser = () => {
     setButtonPressed(!buttonPressed);
   }
 
+  const lineBreaker = () => {
+    return pdfData.split("\n");
+  }
+
   return(
     <>
       <button onClick={handlePoemButton}>Get Poem</button>
-        <p>
-          { pdfData }
-        </p>
+        <ul>
+          { lines.map((value, index) =>{
+            return <li key={index}>{value}</li>
+          })}
+        </ul>
     </>
   )
 }
