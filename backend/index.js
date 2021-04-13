@@ -11,12 +11,14 @@ const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
 app.options('*', cors());
 app.use(express.json());
+
 //middleware
 
 app.use(morgan('tiny'));
-// app.use(authJwt());
+//app.use(authJwt());
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
+
 //router imports
 
 const usersRouter = require('./routes/users');

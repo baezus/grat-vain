@@ -33,6 +33,7 @@ router.get(`/`, async (req, res) => {
 // });
 
 router.post('/login', async(req, res) => {
+  let token;
   const user = await User.findOne({email: req.body.email});
   const secret = process.env.secret;
   if (!user) {
@@ -40,19 +41,20 @@ router.post('/login', async(req, res) => {
   }
 
   if (user && bcrypt.compareSync(req.body.password, user.passwordHash)) {
-    const token = jwt.sign({
+    token = jwt.sign({
       userId: user.id,
       isAdmin: user.isAdmin
     },
     secret,
     {expiresIn: '1d'});
-
-    res.status(200).send({user: user.email, token: token})
+    console.log('token: ', token);
+    //res.status(200).send({token: token})
   } else {
     res.status(400).send('Wrong password.');
   }
-
-  return res.send(user);
+  console.log('user: ', user);
+  console.log('token: ', token);
+  return res.status(200).send({token: token});
 });
 
 router.post('/register', async(req, res) => {

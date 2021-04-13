@@ -1,93 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Login = () => {
 
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleEmailInputChange = (event) => {
+    event.persist();
+    setData((data) => ({
+      ...data,
+      email: event.target.value,
+    }));
+  };
+
+  const handlePasswordInputChange = (event) => {
+    event.persist();
+    setData((data) => ({
+      ...data,
+      password: event.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = await axios.post(
+      'http://127.0.0.1:2737/api/v1/users/login', data)
+      .then((result) => {
+       console.log('result: ', result.data.token);
+       let token = result.data.token;
+       localStorage.setItem('token', token)
+      })
+      .catch((err) => {
+        console.log('error :', err);
+    })
+    setSubmitted(true);
+    console.log('Login result: ', result);
+  };
+
   return (
-    <div className="LoginForm">
-      <div className="field">
-        <label className="label">Name</label>
-        <div className="control">
-          <input className="input" type="text" placeholder="Text input"/>
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Username</label>
-        <div className="control has-icons-left has-icons-right">
-          <input className="input is-success" type="text" placeholder="Text input" value="bulma"/>
-          <span className="icon is-small is-left">
-            <i className="fas fa-user"></i>
-          </span>
-          <span className="icon is-small is-right">
-            <i className="fas fa-check"></i>
-          </span>
-        </div>
-        <p className="help is-success">This username is available</p>
-      </div>
-
+    <div className="registerForm is-grouped-right" onSubmit={handleSubmit}>
+      <form className="control">
       <div className="field">
         <label className="label">Email</label>
         <div className="control has-icons-left has-icons-right">
-          <input className="input is-danger" type="email" placeholder="Email input" value="hello@"/>
-          <span className="icon is-small is-left">
-            <i className="fas fa-envelope"></i>
-          </span>
-          <span className="icon is-small is-right">
-            <i className="fas fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <p className="help is-danger">This email is invalid</p>
-      </div>
-
-      <div className="field">
-        <label className="label">Subject</label>
-        <div className="control">
-          <div className="select">
-            <select>
-              <option>Select dropdown</option>
-              <option>With options</option>
-            </select>
-          </div>
+          <input className="input is-danger" type="email" placeholder="Email" name="email" value={data.email} onChange={handleEmailInputChange}/>
         </div>
       </div>
 
       <div className="field">
-        <label className="label">Message</label>
+        <label className="label">Password</label>
         <div className="control">
-          <textarea className="textarea" placeholder="Textarea"></textarea>
-        </div>
-      </div>
-
-      <div className="field">
-        <div className="control">
-          <label className="checkbox">
-            <input type="checkbox"/>
-            I agree to the <a href="#">terms and conditions</a>
-          </label>
-        </div>
-      </div>
-
-      <div className="field">
-        <div className="control">
-          <label className="radio">
-            <input type="radio" name="question"/>
-            Yes
-          </label>
-          <label className="radio">
-            <input type="radio" name="question"/>
-            No
-          </label>
+          <input className="input is-medium" type="password" placeholder="Password" name="password" value={data.password} onChange={handlePasswordInputChange}/>
         </div>
       </div>
 
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link">Submit</button>
-        </div>
-        <div className="control">
-          <button className="button is-link is-light">Cancel</button>
+          <button className="button is-link" type="submit" >Submit</button>
         </div>
       </div>
+      </form>
     </div>
   )
 };
