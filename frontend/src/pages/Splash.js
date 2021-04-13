@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Splash = () => {
+const Splash = ({}) => {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
