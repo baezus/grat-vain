@@ -54,7 +54,7 @@ router.post('/login', async(req, res) => {
   }
   console.log('user: ', user);
   console.log('token: ', token);
-  return res.status(200).send({token: token});
+  return res.status(200).send({token: token, user: user.display});
 });
 
 router.post('/register', async(req, res) => {

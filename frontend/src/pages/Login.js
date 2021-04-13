@@ -34,6 +34,7 @@ const Login = () => {
        console.log('result: ', result.data.token);
        let token = result.data.token;
        localStorage.setItem('token', token)
+       localStorage.setItem('user', result.data.user)
       })
       .catch((err) => {
         console.log('error :', err);
