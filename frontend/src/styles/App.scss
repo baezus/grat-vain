@@ -70,3 +70,18 @@ div.registerForm {
 div.container {
   min-width: 100vw;
 }
+
+li.poem_title {
+  padding-bottom: 2em;
+}
+
+article.message {
+  width: 500px;
+  margin-left: 2em;
+  height: 500px;
+}
+
+h1.title.is-1 {
+  margin-left: .75em;
+  color: $seven;
+}

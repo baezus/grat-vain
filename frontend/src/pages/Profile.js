@@ -15,10 +15,8 @@ const Profile = () => {
   return (
     <div>
       <h1 className="title is-1">Welcome, {displayName}</h1>
-      <article className="message is-dark" style={{ marginTop: 40 }}>
-        <div className="message-header">
-          <p>{displayName}</p>
-        </div>
+      <article className="message" style={{ marginTop: 40 }}>
+
         <div className="message-body"> 
           <PdfParser/>
         </div>
