@@ -23,12 +23,14 @@ app.use(errorHandler);
 
 const usersRouter = require('./routes/users');
 const poemsRouter = require('./routes/poems');
+const profilesRouter = require('./routes/profiles');
 
 //router setup
 
 const api = process.env.API_URL;
 app.use(`${api}/users`, usersRouter);
 app.use(`${api}/poems`, poemsRouter);
+app.use(`${api}/profiles`, profilesRouter);
 
 //listenings
 

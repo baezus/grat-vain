@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import withAuth from "../components/withAuth";
+import PdfParser from '../components/PdfParser';
 
 const Profile = () => {
   let display = localStorage.getItem('user');
@@ -19,10 +20,7 @@ const Profile = () => {
           <p>{displayName}</p>
         </div>
         <div className="message-body"> 
-          <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-          sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi
-          magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales
-          sem.
+          <PdfParser/>
         </div>
       </article>
     </div>
