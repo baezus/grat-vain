@@ -6,13 +6,12 @@ const poemSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  lines: [{
+  firstLine: {
     type: String,
     required: true
-  }],
+  },
   writer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    type: String,
     required: true
   },
   editsWanted: {
@@ -38,11 +37,18 @@ const poemSchema = mongoose.Schema({
     type: Boolean,
     default: false
   },
+  poemUrl: {
+    type: String,
+    default: ''
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  },
   dateCreated: {
     type: Date,
     default: Date.now
   }
-
 })
 
 poemSchema.virtual('id').get(function() {

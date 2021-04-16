@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
+const PoemUpload = require('./helpers/poem-upload');
 app.options('*', cors());
 app.use(express.json());
 
@@ -36,7 +37,7 @@ const storage = multer.diskStorage({
     if (isValid) {
       uploadError = null;
     }
-    cb(null, 'public/')
+    cb(null, 'public/uploads/')
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname)
@@ -79,6 +80,7 @@ app.post('/upload', upload.single("file"), (req, res) => {
   let file = req.file;
   console.log('reached the right route');
   console.log('file: ', req.file)
+  PoemUpload(req.file);
   return res.send(req.file);
 });
 

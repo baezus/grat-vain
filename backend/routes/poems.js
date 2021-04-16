@@ -24,9 +24,11 @@ router.post(`/`, async (req, res) => {
   const addedPoem = new Poem ({
     title: req.body.title,
     writer: req.body.writer,
-    lines: req.body.lines,
+    firstLine: req.body.firstLine,
     editsWanted: req.body.editsWanted,
     tags: req.body.tags,
+    poemUrl: req.body.poemUrl,
+    updatedAt: req.body.updatedAt,
     isOriginal: req.body.isOriginal,
     isFeatured: req.body.isFeatured
   });
@@ -46,9 +48,11 @@ router.put(`/:id`, async (req, res) => {
     {
       title: req.body.title,
       writer: req.body.writer,
-      lines: req.body.lines,
+      firstLine: req.body.firstLine,
       editsWanted: req.body.editsWanted,
       tags: req.body.tags,
+      poemUrl: req.body.poemUrl,
+      updatedAt: req.body.updatedAt,
       isOriginal: req.body.isOriginal,
       isFeatured: req.body.isFeatured
     },
