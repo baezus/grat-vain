@@ -19,7 +19,31 @@ app.use(morgan('tiny'));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
 
+//multer setup
 
+//multer
+const multer = require('multer');
+let filter = {};
+
+const FILE_TYPE_MAP = {
+  'application/pdf': 'pdf',
+}
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    const isValid = FILE_TYPE_MAP[file.mimetype];
+    let uploadError = new Error('invalid file type');
+    if (isValid) {
+      uploadError = null;
+    }
+    cb(null, 'public/')
+  },
+  filename: function(req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname)
+  }
+})
+
+const upload = multer({ storage: storage });
 
 //router imports
 
@@ -50,6 +74,13 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.log('ERROR!: ', err);
 });
 
+
+app.post('/upload', upload.single("file"), (req, res) => {
+  let file = req.file;
+  console.log('reached the right route');
+  console.log('file: ', req.file)
+  return res.send(req.file);
+});
 
 const server = require('http').createServer(app);
 
